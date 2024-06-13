@@ -1,0 +1,22 @@
+POST
+
+curl -X POST -H "Content-Type: application/json" -d '{"id":3,"title":"","startedOn":"2024-05-11T20:01:34.61482","completedOn":"2024-05-11T21:01:34.614843","miles":3,"location":"OUTDOOR"}' "http://localhost:8080/api/runs"
+
+GET ALL
+
+curl localhost:8080/api/runs | jq
+
+Update
+
+curl -X PUT -H "Content-Type: application/json" -d '{"id":3,"title":"Third Run","startedOn":"2024-05-11T20:01:34.61482","completedOn":"2024-05-11T21:01:34.614843","miles":3,"location":"INDOOR"}' "http://localhost:8080/api/runs/3"
+
+Delete
+
+curl -X DELETE "http://localhost:8080/api/runs/3"
+
+Postgresql
+
+docker run -d --name my-postgres \
+           -e POSTGRES_USER=admin \
+           -e POSTGRES_PASSWORD=admin \
+           -e POSTGRES_DB=postgresdb -p5432:5432 postgres
